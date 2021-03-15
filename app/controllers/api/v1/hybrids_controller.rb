@@ -21,6 +21,12 @@ class Api::V1::HybridsController < ApplicationController
         render json: @hybrid, status: 200
     end
 
+    def destroy
+        @hybrid = Hybrid.find(params[:id])
+        @hybrid.delete
+        render json: {hybridId: @hybird.id}
+    end
+
     private
 
     def hybrid_params
