@@ -15,6 +15,12 @@ class Api::V1::HybridsController < ApplicationController
         render json: @hybrid, status: 200
     end
 
+    def update
+        @hybrid = Hybrid.find(params[:id])
+        @hybrid.update(hybrid_params)
+        render json: @hybrid, status: 200
+    end
+
     private
 
     def hybrid_params
