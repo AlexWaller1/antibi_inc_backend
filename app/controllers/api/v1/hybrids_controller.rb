@@ -1,7 +1,7 @@
 class Api::V1::HybridsController < ApplicationController
 
     def index
-        @hybrids = Hybrids.all
+        @hybrids = Hybrid.all
         render json: @hybrids, status: 200
     end
 

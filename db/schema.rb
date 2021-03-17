@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_175345) do
+ActiveRecord::Schema.define(version: 2021_03_17_032017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "report"
+    t.bigint "hybrid_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hybrid_id"], name: "index_comments_on_hybrid_id"
+  end
 
   create_table "hybrids", force: :cascade do |t|
     t.string "name"
